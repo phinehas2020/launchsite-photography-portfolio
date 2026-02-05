@@ -73,7 +73,7 @@ if (reducedMotion) {
   revealNodes.forEach((node) => node.classList.add("is-visible"));
 } else {
   revealNodes.forEach((node, index) => {
-    const delay = Math.min(index * 36, 300);
+    const delay = Math.min(index * 24, 120);
     window.setTimeout(() => {
       node.classList.add("is-visible");
     }, delay);

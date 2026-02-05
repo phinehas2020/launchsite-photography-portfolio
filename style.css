@@ -25,8 +25,8 @@
   --space-l: clamp(2rem, 1.6rem + 1.6vw, 3rem);
   --space-xl: clamp(3rem, 2.35rem + 2.4vw, 4.8rem);
 
-  --radius: 1rem;
-  --radius-sm: 0.7rem;
+  --radius: 6px;
+  --radius-sm: 4px;
   --shell: min(78rem, 100% - 2rem);
 }
 
@@ -47,9 +47,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--step-0);
   line-height: 1.6;
-  background:
-    radial-gradient(circle at 85% 8%, rgba(177, 106, 68, 0.18), transparent 32%),
-    linear-gradient(180deg, #f3eee6 0%, #ebe4d9 56%, #e7dfd2 100%);
+  background: #ece7de;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
@@ -153,15 +151,14 @@ ol {
   display: block;
   width: 0;
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+  background: var(--accent);
 }
 
 .site-header {
   position: sticky;
   top: 0;
   z-index: 40;
-  backdrop-filter: blur(10px);
-  background: rgba(244, 239, 232, 0.78);
+  background: var(--panel);
   border-bottom: 1px solid transparent;
   transition: border-color 180ms ease, transform 220ms ease, background-color 180ms ease;
 }
@@ -262,7 +259,7 @@ ol {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
+  border-radius: 6px;
   padding: 0.72rem 1.1rem;
   border: 1px solid transparent;
   font-family: var(--font-mono);
@@ -291,7 +288,7 @@ ol {
 .button--ghost {
   border-color: var(--line-strong);
   color: var(--ink);
-  background: rgba(255, 255, 255, 0.35);
+  background: #fff;
 }
 
 .menu-toggle {
@@ -301,7 +298,7 @@ ol {
   block-size: 2.4rem;
   border-radius: 0.6rem;
   border: 1px solid var(--line-strong);
-  background: rgba(255, 255, 255, 0.6);
+  background: #fff;
   cursor: pointer;
   padding: 0;
 }
@@ -368,7 +365,7 @@ ol {
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: 0.65rem;
-  background: rgba(255, 255, 255, 0.42);
+  background: #fff;
   display: grid;
   gap: 0.25rem;
 }
@@ -396,7 +393,7 @@ ol {
   border-radius: var(--radius);
   overflow: clip;
   border: 1px solid var(--line);
-  box-shadow: 0 22px 52px rgba(41, 33, 24, 0.16);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .hero-card--primary {
@@ -470,7 +467,7 @@ ol {
   grid-column: span 4;
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.42);
+  background: #fff;
   overflow: clip;
   display: grid;
 }
@@ -515,7 +512,7 @@ ol {
 .service-card {
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.44);
+  background: #fff;
   padding: 1rem;
   display: grid;
   gap: 0.5rem;
@@ -571,7 +568,7 @@ ol {
   align-items: start;
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.4);
+  background: #fff;
   padding: 0.82rem;
 }
 
@@ -595,7 +592,7 @@ ol {
 .testimonial-card {
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.45);
+  background: #fff;
   padding: 0.95rem;
   display: grid;
   gap: 0.45rem;
@@ -620,7 +617,7 @@ ol {
 .contact-panel {
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.34));
+  background: #fff;
   padding: clamp(1rem, 0.8rem + 1.3vw, 1.8rem);
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.95fr);
@@ -670,8 +667,8 @@ ol {
 
 .js .reveal {
   opacity: 0;
-  transform: translate3d(0, 10px, 0);
-  transition: opacity 480ms ease, transform 480ms ease;
+  transform: translate3d(0, 6px, 0);
+  transition: opacity 250ms ease, transform 250ms ease;
 }
 
 .js .reveal.is-visible {
