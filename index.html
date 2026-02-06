@@ -3,25 +3,23 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>NOIRÉ Atelier — Architecture & Editorial Photography</title>
   <meta name="description"
-    content="NOIRÉ Atelier is an independent photography studio in Brooklyn creating architectural and editorial imagery for design-led brands, hotels, and cultural spaces." />
-  <meta name="theme-color" content="#ece7de" />
+    content="Independent photography studio in Brooklyn creating architectural and editorial imagery for design-led brands, hotels, and cultural spaces." />
+  <meta name="theme-color" content="#faf9f7" />
   <meta property="og:title" content="NOIRÉ Atelier — Architecture & Editorial Photography" />
   <meta property="og:description"
-    content="Independent photography studio by Elara Saint. Architecture, interiors, portraits, and brand campaigns with a quiet editorial point of view." />
+    content="Independent photography studio by Elara Saint. Architecture, interiors, and brand campaigns with a quiet editorial point of view." />
   <meta property="og:type" content="website" />
   <meta property="og:image"
     content="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80" />
-  <meta property="og:url" content="https://www.noireatelier.com" />
-  <link rel="canonical" href="https://www.noireatelier.com" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet" />
 
   <script type="application/ld+json">
@@ -42,7 +40,7 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <div class="scroll-progress" aria-hidden="true">
+  <div class="scroll-progress" aria-hidden="true" data-scroll-progress-container>
     <span data-scroll-progress></span>
   </div>
 
@@ -50,10 +48,7 @@
     <div class="shell header-layout">
       <a href="#home" class="brand" aria-label="NOIRÉ Atelier home">
         <span class="brand-mark" aria-hidden="true">N</span>
-        <span class="brand-text">
-          <strong>NOIRÉ Atelier</strong>
-          <small>Photography by Elara Saint</small>
-        </span>
+        <span class="brand-text">NOIRÉ Atelier</span>
       </a>
 
       <button class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="primary-nav"
@@ -66,304 +61,215 @@
         <a href="#work" class="site-nav__link" data-nav-link>Work</a>
         <a href="#services" class="site-nav__link" data-nav-link>Services</a>
         <a href="#journal" class="site-nav__link" data-nav-link>Journal</a>
-        <a href="#process" class="site-nav__link" data-nav-link>Process</a>
         <a href="#contact" class="site-nav__link" data-nav-link>Contact</a>
       </nav>
 
-      <a href="mailto:bookings@noireatelier.com?subject=Photography%20Inquiry"
-        class="button button--ghost header-cta">Check Availability</a>
+      <a href="mailto:bookings@noireatelier.com?subject=Photography%20Inquiry" class="button button--primary header-cta"
+        aria-label="Send inquiry email">Inquire</a>
     </div>
   </header>
 
   <main id="main-content">
-    <section class="section hero" id="home" aria-labelledby="hero-title">
-      <div class="shell hero-grid">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Independent studio · Brooklyn, New York</p>
-          <h1 id="hero-title">I photograph spaces the way people remember them.</h1>
-          <p class="lede">
-            I’m Elara. I work with architecture studios, hospitality teams, and design-led brands that need imagery with
-            restraint, texture, and an unmistakable point of view.
-          </p>
 
-          <div class="hero-actions">
-            <a href="#work" class="button">View Case Studies</a>
-            <a href="#contact" class="button button--ghost">Start a Project</a>
-          </div>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2400&q=80"
+          alt="Minimalist architectural interior with natural light" width="2400" height="1600" loading="eager"
+          decoding="async" />
+      </div>
+      <div class="shell hero-overlay">
+        <p class="hero-subtitle reveal">Independent Studio</p>
+        <h1 id="hero-title" class="hero-title reveal">Elara Saint</h1>
+        <p class="hero-location reveal">Brooklyn &middot; New York</p>
+      </div>
+    </section>
 
-          <ul class="hero-metrics" aria-label="Studio details">
-            <li>
-              <span class="metric-value">12</span>
-              <span class="metric-label">Commissions / year</span>
-            </li>
-            <li>
-              <span class="metric-value">72h</span>
-              <span class="metric-label">First select turnaround</span>
-            </li>
-            <li>
-              <span class="metric-value">Jul 2026</span>
-              <span class="metric-label">Current booking window</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="hero-visual reveal">
-          <figure class="hero-card hero-card--primary">
-            <img
-              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
-              alt="Architectural interior photographed in morning light" width="1600" height="2000" loading="eager"
-              decoding="async" />
-          </figure>
-          <figure class="hero-card hero-card--secondary">
-            <img
-              src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=1200&q=80"
-              alt="Editorial detail of books and floral arrangement" width="1200" height="1500" loading="lazy"
-              decoding="async" />
-          </figure>
-          <p class="hero-caption">From the Nørrebro Residence series · Copenhagen</p>
+    <section class="manifesto" aria-labelledby="manifesto-title">
+      <div class="shell manifesto-inner">
+        <blockquote class="manifesto-quote reveal">
+          <p id="manifesto-title">I photograph spaces the way people remember them &mdash; calm sets, deliberate pacing,
+            and images that age well.</p>
+        </blockquote>
+        <div class="manifesto-detail reveal">
+          <p>I build image systems for design-led brands with a focus on visual hierarchy: from hero frames to lived-in
+            textures that define space.</p>
         </div>
       </div>
     </section>
 
-    <section class="section manifesto" aria-labelledby="manifesto-title">
-      <div class="shell manifesto-grid reveal">
-        <div>
-          <p class="eyebrow">Approach</p>
-          <h2 class="section-title" id="manifesto-title">Calm sets, deliberate pacing, and images that age well.</h2>
-        </div>
-        <p>
-          Most clients come to me after trying louder visuals that didn’t convert. I build image systems with clear visual
-          hierarchy: hero frames, supporting details, and lived-in texture. Every shot has a purpose before we step on set.
-        </p>
-        <ul class="manifesto-list">
-          <li>Small crew unless scale requires more.</li>
-          <li>Tethered review for real-time framing decisions.</li>
-          <li>Color-managed final delivery for web and print.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section works" id="work" aria-labelledby="work-title">
+    <section class="works" id="work" aria-labelledby="work-title">
       <div class="shell">
-        <div class="section-head reveal">
-          <p class="eyebrow">Selected Work</p>
-          <h2 class="section-title" id="work-title">Recent commissions with clear business outcomes.</h2>
-        </div>
+        <p class="section-label reveal" id="work-title">Selected Work</p>
 
-        <div class="works-grid">
-          <article class="work-card work-card--feature reveal">
-            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1800&q=80"
-              alt="Large scale concrete architecture in dawn light" width="1800" height="2200" loading="lazy"
+        <div class="works-gallery">
+          <figure class="works-item works-item--hero reveal">
+            <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2400&q=80"
+              alt="Concrete architecture detail Copenhagen" width="2400" height="1350" loading="lazy"
               decoding="async" />
-            <div class="work-meta">
-              <h3>Monolith House</h3>
-              <p>Architecture campaign for Northline Studio · Copenhagen</p>
-            </div>
-            <p class="work-note">Challenge: too many disconnected visuals. Solution: one coherent launch set used across web, press, and OOH.</p>
-          </article>
+            <figcaption>
+              <strong>Monolith House</strong>
+              <span>Architecture campaign &middot; Copenhagen</span>
+            </figcaption>
+          </figure>
 
-          <article class="work-card reveal">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=80"
-              alt="Reflections on glass tower facade in New York" width="1800" height="2200" loading="lazy"
-              decoding="async" />
-            <div class="work-meta">
-              <h3>City Skin</h3>
-              <p>Editorial series · Manhattan</p>
-            </div>
-          </article>
+          <figure class="works-item works-item--tall reveal">
+            <img src="https://images.unsplash.com/photo-1448691655611-6679262ad1ab?auto=format&fit=crop&w=1200&q=80"
+              alt="Minimalist museum staircase" width="1200" height="1800" loading="lazy" decoding="async" />
+            <figcaption>
+              <strong>City Skin</strong>
+              <span>Editorial series &middot; Manhattan</span>
+            </figcaption>
+          </figure>
 
-          <article class="work-card reveal">
-            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1800&q=80"
-              alt="Portrait with sculptural side light" width="1800" height="2200" loading="lazy" decoding="async" />
-            <div class="work-meta">
-              <h3>Quiet Voltage</h3>
-              <p>Fashion narrative · Paris</p>
-            </div>
-          </article>
+          <figure class="works-item works-item--short reveal">
+            <img src="https://images.unsplash.com/photo-1549144511-f099e773c147?auto=format&fit=crop&w=1200&q=80"
+              alt="Modern art gallery interior" width="1200" height="900" loading="lazy" decoding="async" />
+            <figcaption>
+              <strong>Quiet Voltage</strong>
+              <span>Interior narrative &middot; Paris</span>
+            </figcaption>
+          </figure>
 
-          <article class="work-card reveal">
-            <img src="https://images.unsplash.com/photo-1533139502658-0198f920d8e8?auto=format&fit=crop&w=1800&q=80"
-              alt="Modern residence interior photographed at dusk" width="1800" height="2200" loading="lazy"
-              decoding="async" />
-            <div class="work-meta">
-              <h3>House of Breath</h3>
-              <p>Residential commission · Kyoto</p>
-            </div>
-          </article>
+          <figure class="works-item reveal">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80"
+              alt="Architectural wood detail" width="1200" height="1500" loading="lazy" decoding="async" />
+            <figcaption>
+              <strong>House of Breath</strong>
+              <span>Residential &middot; Kyoto</span>
+            </figcaption>
+          </figure>
 
-          <article class="work-card reveal">
+          <figure class="works-item works-item--wide reveal">
             <img src="https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&fit=crop&w=1800&q=80"
-              alt="Minimal interior composition with warm shadows" width="1800" height="2200" loading="lazy"
-              decoding="async" />
-            <div class="work-meta">
-              <h3>Amber Geometry</h3>
-              <p>Hospitality identity system · Lisbon</p>
-            </div>
-          </article>
+              alt="Hotel lobby hospitality lighting" width="1800" height="1200" loading="lazy" decoding="async" />
+            <figcaption>
+              <strong>Amber Geometry</strong>
+              <span>Hospitality identity &middot; Lisbon</span>
+            </figcaption>
+          </figure>
+
+          <figure class="works-item reveal">
+            <img src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=1200&q=80"
+              alt="Studio editorial still life" width="1200" height="1500" loading="lazy" decoding="async" />
+            <figcaption>
+              <strong>Still Morning</strong>
+              <span>Personal series &middot; Brooklyn</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <section class="section services" id="services" aria-labelledby="services-title">
+    <section class="services" id="services" aria-labelledby="services-title">
       <div class="shell">
-        <div class="section-head reveal">
-          <p class="eyebrow">Services</p>
-          <h2 class="section-title" id="services-title">Built for teams that care about both craft and conversion.</h2>
-        </div>
-
-        <div class="services-grid">
-          <article class="service-card reveal">
-            <h3>Architecture & Interiors</h3>
-            <p>Full-day or multi-day shoots for architecture, hotels, and real estate launches.</p>
-            <span class="service-meta">From $4,800 / day</span>
-          </article>
-          <article class="service-card reveal">
-            <h3>Editorial Portraits</h3>
-            <p>Founder stories, team narratives, and campaign portraits for digital and print.</p>
-            <span class="service-meta">From $3,200 / day</span>
-          </article>
-          <article class="service-card reveal">
-            <h3>Campaign Production</h3>
-            <p>Art direction, shot architecture, post-production, and final export packages.</p>
-            <span class="service-meta">Custom project scope</span>
-          </article>
-        </div>
+        <p class="section-label reveal" id="services-title">Services</p>
+        <dl class="services-list">
+          <div class="services-item reveal">
+            <dt>Architecture & Interiors</dt>
+            <dd>Multi-day commissions for international design studios, hotels, and luxury real estate.</dd>
+            <dd class="services-price">From $4,800</dd>
+          </div>
+          <div class="services-item reveal">
+            <dt>Campaign Art Direction</dt>
+            <dd>Visual strategy, location scouting, and high-fidelity production for brand launches.</dd>
+            <dd class="services-price">Custom Scope</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
-    <section class="section journal" id="journal" aria-labelledby="journal-title">
+    <section class="journal" id="journal" aria-labelledby="journal-title">
       <div class="shell">
-        <div class="section-head reveal">
-          <p class="eyebrow">Studio Journal</p>
-          <h2 class="section-title" id="journal-title">Notes from recent productions.</h2>
-        </div>
-
+        <p class="section-label reveal" id="journal-title">Journal</p>
         <div class="journal-list">
           <article class="journal-item reveal">
-            <time datetime="2026-01-18">January 18, 2026</time>
-            <h3>How we lit a north-facing loft without killing the shadows</h3>
-            <p>A practical walkthrough of reflector placement, exposure strategy, and post workflow from our latest interior campaign.</p>
+            <time datetime="2026-01-18">Jan 2026</time>
+            <h3>Lighting the Monolith: Notes on Northline House</h3>
           </article>
           <article class="journal-item reveal">
-            <time datetime="2025-12-04">December 4, 2025</time>
-            <h3>The pre-production checklist we send every new client</h3>
-            <p>The exact document we use to lock timelines, styling needs, location constraints, and delivery expectations.</p>
+            <time datetime="2025-12-04">Dec 2025</time>
+            <h3>The architecture of a shot list</h3>
           </article>
           <article class="journal-item reveal">
-            <time datetime="2025-10-27">October 27, 2025</time>
-            <h3>Why most portfolio pages fail before anyone scrolls</h3>
-            <p>Three homepage mistakes we keep seeing, and how focused image hierarchy fixes all of them.</p>
+            <time datetime="2025-10-27">Oct 2025</time>
+            <h3>Calm sets and deliberate pacing</h3>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section process" id="process" aria-labelledby="process-title">
+    <section class="process" id="process">
       <div class="shell">
-        <div class="section-head reveal">
-          <p class="eyebrow">Process</p>
-          <h2 class="section-title" id="process-title">A straightforward production path, start to finish.</h2>
-        </div>
-
+        <p class="section-label reveal">Method</p>
         <ol class="process-list">
-          <li class="process-item reveal">
-            <span>01</span>
+          <li class="process-step reveal">
+            <span class="process-num">01</span>
             <div>
-              <h3>Brief & Intent</h3>
-              <p>We define audience, deliverables, and where the images will actually live.</p>
+              <h3>Intent</h3>
+              <p>Defining the visual narrative and technical deliverables.</p>
             </div>
           </li>
-          <li class="process-item reveal">
-            <span>02</span>
+          <li class="process-step reveal">
+            <span class="process-num">02</span>
             <div>
-              <h3>Pre-Production</h3>
-              <p>Shot list, run-of-show, location notes, and technical planning are approved before shoot day.</p>
+              <h3>Planning</h3>
+              <p>Detailed technical scouting and run-of-show approval.</p>
             </div>
           </li>
-          <li class="process-item reveal">
-            <span>03</span>
+          <li class="process-step reveal">
+            <span class="process-num">03</span>
             <div>
               <h3>Production</h3>
-              <p>We run a disciplined set with live client review, so there are no surprises in post.</p>
+              <p>Disciplined execution with real-time digital review.</p>
             </div>
           </li>
-          <li class="process-item reveal">
-            <span>04</span>
+          <li class="process-step reveal">
+            <span class="process-num">04</span>
             <div>
-              <h3>Edit & Delivery</h3>
-              <p>Finals ship in calibrated formats for web, social, print, and PR use.</p>
+              <h3>Refining</h3>
+              <p>Calibration for web and high-fidelity print formats.</p>
             </div>
           </li>
         </ol>
       </div>
     </section>
 
-    <section class="section testimonials" aria-labelledby="testimonials-title">
-      <div class="shell">
-        <div class="section-head reveal">
-          <p class="eyebrow">Client Notes</p>
-          <h2 class="section-title" id="testimonials-title">What partners say after launch.</h2>
-        </div>
-
-        <div class="testimonial-grid">
-          <article class="testimonial-card reveal">
-            <p>“We replaced our entire launch deck with this image set. It finally felt like us.”</p>
-            <h3>Aria Holt</h3>
-            <span>Creative Director, Aether Living</span>
-          </article>
-          <article class="testimonial-card reveal">
-            <p>“Fast, calm, and very precise. The final files were usable across every channel on day one.”</p>
-            <h3>Kenji Morita</h3>
-            <span>Founder, Mori Studio</span>
-          </article>
-          <article class="testimonial-card reveal">
-            <p>“No overproduction, no fluff. Just beautiful frames that made our brand look grown up.”</p>
-            <h3>Lucienne Voss</h3>
-            <span>Brand Strategist, Maison Atelier</span>
-          </article>
-        </div>
+    <section class="testimonial" aria-labelledby="testimonial-quote">
+      <div class="shell testimonial-inner">
+        <blockquote class="reveal">
+          <p id="testimonial-quote">&ldquo;Elara captures the stillness of a room that others miss. Her work became the
+            cornerstone of our global brand identity.&rdquo;</p>
+          <footer>
+            <cite>Aria Holt</cite>
+            <span>Aether Living &middot; Creative Director</span>
+          </footer>
+        </blockquote>
       </div>
     </section>
 
-    <section class="section contact" id="contact" aria-labelledby="contact-title">
-      <div class="shell contact-panel reveal">
-        <div>
-          <p class="eyebrow">Availability</p>
-          <h2 class="section-title" id="contact-title">If the project is a fit, I’ll send a scope in 24 hours.</h2>
-          <p>
-            Share your timeline, location, and where the images need to perform (web, print, campaign, investor deck, etc.).
-            I’ll reply with clear pricing and next steps.
-          </p>
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="shell contact-inner">
+        <h2 id="contact-title" class="contact-heading reveal">Let's build a narrative.</h2>
+        <p class="contact-body reveal">I am currently accepting commissions for Q3 & Q4 2026. Available for travel
+          worldwide.</p>
+        <div class="contact-actions reveal">
+          <a class="button button--primary" href="mailto:bookings@noireatelier.com">bookings@noireatelier.com</a>
         </div>
-
-        <div class="contact-actions">
-          <a class="button" href="mailto:bookings@noireatelier.com?subject=New%20Project%20Inquiry">bookings@noireatelier.com</a>
-          <a class="button button--ghost" href="tel:+12125550128">+1 (212) 555-0128</a>
-          <p class="small-note">Next start dates: July–August 2026 · Travel worldwide</p>
-        </div>
+        <p class="contact-note reveal">Brooklyn, NY &middot; Tokyo, JP</p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="shell footer-grid">
-      <p>© <span data-year></span> NOIRÉ Atelier · Last updated February 2026</p>
+      <p>&copy; <span data-year></span> NOIRÉ Atelier</p>
       <div class="footer-links">
-        <a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
-        <a href="https://www.behance.net" target="_blank" rel="noreferrer">Behance</a>
-        <a href="https://www.are.na" target="_blank" rel="noreferrer">Are.na</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://behance.net" target="_blank" rel="noopener">Behance</a>
+        <a href="https://are.na" target="_blank" rel="noopener">Are.na</a>
       </div>
     </div>
   </footer>
-
-  <noscript>
-    <style>
-      .reveal {
-        opacity: 1 !important;
-        transform: none !important;
-      }
-    </style>
-  </noscript>
 
   <script type="module" src="/main.js"></script>
 </body>

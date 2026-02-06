@@ -1,124 +1,154 @@
 import "./style.css";
 
+// ----------------------------------------------------------------
+// INITIALIZATION
+// ----------------------------------------------------------------
+
 document.documentElement.classList.add("js");
 
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+// Respect reduced motion per skill guidelines
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const header = document.querySelector("[data-header]");
-const nav = document.querySelector("[data-nav]");
-const menuToggle = document.querySelector("[data-menu-toggle]");
-const navLinks = [...document.querySelectorAll("[data-nav-link]")];
-const sections = [...document.querySelectorAll("main section[id]")];
-const yearSlot = document.querySelector("[data-year]");
-const progress = document.querySelector("[data-scroll-progress]");
-const revealNodes = [...document.querySelectorAll(".reveal")];
+const elements = {
+  header: document.querySelector("[data-header]"),
+  nav: document.querySelector("[data-nav]"),
+  menuToggle: document.querySelector("[data-menu-toggle]"),
+  navLinks: [...document.querySelectorAll("[data-nav-link]")],
+  sections: [...document.querySelectorAll("main section[id]")],
+  yearLabel: document.querySelector("[data-year]"),
+  scrollBar: document.querySelector("[data-scroll-progress]"),
+  revealNodes: [...document.querySelectorAll(".reveal")],
+};
 
-if (yearSlot) {
-  yearSlot.textContent = String(new Date().getFullYear());
+if (elements.yearLabel) {
+  elements.yearLabel.textContent = new Date().getFullYear().toString();
 }
 
-const setMobileMenuState = (open) => {
-  if (!menuToggle || !nav) {
-    return;
+// ----------------------------------------------------------------
+// REVEAL ANIMATIONS (IntersectionObserver)
+// ----------------------------------------------------------------
+
+const initRevealObserver = () => {
+  if (prefersReducedMotion) return;
+
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px 0px -8% 0px",
+    threshold: 0.1,
+  };
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        // Once revealed, no need to observe anymore
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  elements.revealNodes.forEach((node) => revealObserver.observe(node));
+};
+
+initRevealObserver();
+
+// ----------------------------------------------------------------
+// NAVIGATION & MENU
+// ----------------------------------------------------------------
+
+const toggleMenu = (forceState) => {
+  const isCurrentlyOpen = elements.menuToggle?.getAttribute("aria-expanded") === "true";
+  const newState = typeof forceState === "boolean" ? forceState : !isCurrentlyOpen;
+
+  if (elements.menuToggle) {
+    elements.menuToggle.setAttribute("aria-expanded", newState.toString());
   }
 
-  menuToggle.setAttribute("aria-expanded", String(open));
-  nav.dataset.open = String(open);
-
-  const headerCta = document.querySelector(".header-cta");
-  if (headerCta) {
-    headerCta.dataset.open = String(open);
+  if (elements.nav) {
+    elements.nav.dataset.open = newState.toString();
   }
 };
 
-if (menuToggle) {
-  menuToggle.addEventListener("click", () => {
-    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-    setMobileMenuState(!isOpen);
-  });
-}
+elements.menuToggle?.addEventListener("click", () => toggleMenu());
 
-navLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    setMobileMenuState(false);
-  });
+// Close menu on link click
+elements.navLinks.forEach((link) => {
+  link.addEventListener("click", () => toggleMenu(false));
 });
 
-const setActiveNavLink = (currentId) => {
-  navLinks.forEach((link) => {
-    const isActive = link.getAttribute("href") === `#${currentId}`;
-    link.classList.toggle("is-current", isActive);
-  });
-};
-
-if (sections.length > 0 && "IntersectionObserver" in window) {
-  const sectionObserver = new IntersectionObserver(
+// Scroll margin and active state
+const initNavigationObserver = () => {
+  const navObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActiveNavLink(entry.target.id);
+          const id = entry.target.getAttribute("id");
+          elements.navLinks.forEach((link) => {
+            const isActive = link.getAttribute("href") === `#${id}`;
+            link.classList.toggle("is-current", isActive);
+          });
         }
       });
     },
-    {
-      threshold: 0.5,
-      rootMargin: "-20% 0px -40% 0px"
-    }
+    { threshold: 0.3, rootMargin: "-20% 0px -40% 0px" }
   );
 
-  sections.forEach((section) => sectionObserver.observe(section));
-}
+  elements.sections.forEach((section) => navObserver.observe(section));
+};
 
-if (reducedMotion) {
-  revealNodes.forEach((node) => node.classList.add("is-visible"));
-} else {
-  revealNodes.forEach((node, index) => {
-    const delay = Math.min(index * 24, 120);
-    window.setTimeout(() => {
-      node.classList.add("is-visible");
-    }, delay);
-  });
-}
+initNavigationObserver();
 
-let previousScroll = 0;
-let ticking = false;
+// ----------------------------------------------------------------
+// SCROLL PERFORMANCE
+// ----------------------------------------------------------------
 
-const updateScrollState = () => {
-  const scroll = window.scrollY;
+let lastScrollY = window.scrollY;
+let isScrolling = false;
+
+const handleScroll = () => {
+  const currentScrollY = window.scrollY;
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  const ratio = maxScroll > 0 ? Math.min(scroll / maxScroll, 1) : 0;
+  const scrollRatio = maxScroll > 0 ? Math.min(currentScrollY / maxScroll, 1) : 0;
 
-  if (progress) {
-    progress.style.width = `${ratio * 100}%`;
+  // Scroll Progress Bar
+  if (elements.scrollBar) {
+    elements.scrollBar.style.transform = `scaleX(${scrollRatio})`;
   }
 
-  if (header) {
-    header.classList.toggle("is-solid", scroll > 12);
+  // Header Behavior
+  if (elements.header) {
+    // Add solid background after scrolling a bit
+    elements.header.classList.toggle("is-solid", currentScrollY > 20);
 
-    const scrollingDown = scroll > previousScroll;
-    const isDesktop = window.innerWidth > 960;
-    const menuOpen = menuToggle?.getAttribute("aria-expanded") === "true";
-
-    if (isDesktop && !menuOpen && scroll > 220 && scrollingDown) {
-      header.classList.add("is-hidden");
-    } else {
-      header.classList.remove("is-hidden");
+    // Hide/Show header on scroll direction (Desktop only)
+    if (window.innerWidth >= 960) {
+      const isHeaderOpen = elements.menuToggle?.getAttribute("aria-expanded") === "true";
+      if (!isHeaderOpen && currentScrollY > 400) {
+        if (currentScrollY > lastScrollY) {
+          elements.header.classList.add("is-hidden");
+        } else {
+          elements.header.classList.remove("is-hidden");
+        }
+      } else {
+        elements.header.classList.remove("is-hidden");
+      }
     }
   }
 
-  previousScroll = scroll;
-  ticking = false;
+  lastScrollY = currentScrollY;
+  isScrolling = false;
 };
 
-const onScroll = () => {
-  if (ticking) {
-    return;
-  }
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!isScrolling) {
+      window.requestAnimationFrame(handleScroll);
+      isScrolling = true;
+    }
+  },
+  { passive: true }
+);
 
-  ticking = true;
-  requestAnimationFrame(updateScrollState);
-};
-
-window.addEventListener("scroll", onScroll, { passive: true });
-window.addEventListener("resize", onScroll, { passive: true });
-updateScrollState();
+// Initial state
+handleScroll();
